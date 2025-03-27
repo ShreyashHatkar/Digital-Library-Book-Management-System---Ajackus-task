@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: library-management
+    repo: https://github.com/ShreyashHatkar/Digital-Library-Book-Management-System---Ajackus-task
+    branch: main
+    buildCommand: ./mvnw clean install
+    startCommand: java -jar target/*.jar
+    plan: free
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:h2:mem:testdb
+      - key: SPRING_DATASOURCE_USERNAME
+        value: root
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: password
