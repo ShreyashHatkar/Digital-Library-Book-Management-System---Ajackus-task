@@ -1,5 +1,8 @@
-# Java, Spring Boot Mini Project - Library Management System
+# Digital Library Book Management System (JAVA) - Ajackus task
 
+#Live Link
+
+https://digital-library-book-management-system-1bub.onrender.com/
 
 # Local setup
 
@@ -15,10 +18,12 @@ Step 5:  ```mvn clean install```
 
 Step 6:  ```mvn spring-boot:run```
 
-Step 7: From the browser call the endpoint http://localhost:9080
+Step 7: From the browser call the endpoint http://localhost:2000
 
 Step 8: Admin Login User Id: ```admin@admin.in``` & Password: ```Temp123```
 
 
 # Screenshots
+
+![alt text](image.png)
 
