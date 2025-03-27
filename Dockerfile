@@ -1,4 +1,4 @@
-# Use a base image with Java and Maven installed
+# Use Maven with JDK 17 for building the project
 FROM maven:3.8.4-openjdk-17 AS build
 WORKDIR /app
 
@@ -13,11 +13,11 @@ RUN mvn clean install
 FROM openjdk:17-jdk-slim
 WORKDIR /app
 
-# Copy the built JAR from the previous step
-COPY --from=build /app/target/*.jar app.jar
+# Copy the entire project (including pom.xml and target)
+COPY . .
 
 # Expose port 2000
 EXPOSE 2000
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run the application using Maven
+CMD ["mvn", "spring-boot:run"]
