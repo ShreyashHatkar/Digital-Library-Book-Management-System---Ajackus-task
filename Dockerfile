@@ -13,11 +13,11 @@ RUN mvn clean install
 FROM openjdk:17-jdk-slim
 WORKDIR /app
 
-# Copy the entire project (including pom.xml and target)
-COPY . .
+# Copy built JAR file from the build stage
+COPY --from=build /app/target/*.jar app.jar
 
 # Expose port 2000
 EXPOSE 2000
 
-# Run the application using Maven
-CMD ["mvn", "spring-boot:run"]
+# Run the application using Java directly (not Maven)
+CMD ["java", "-jar", "app.jar"]
